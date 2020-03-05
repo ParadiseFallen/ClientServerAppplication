@@ -10,10 +10,10 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            using (var cliet = new Client())
-            {
-                cliet.Start();
-            }
+            //using (var cliet = new Client())
+            //{
+            //    cliet.Start();
+            //}
         }
     }
 }

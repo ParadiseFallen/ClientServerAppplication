@@ -10,10 +10,10 @@ namespace ConsoleApp10
     {
         static void Main(string[] args)
         {
-            using (var server = new Server())
-            {
-                server.Start();
-            }
+            //using (var server = new Server())
+            //{
+            //    server.Start();
+            //}
         }
     }
 }

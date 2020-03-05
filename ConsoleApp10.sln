@@ -5,15 +5,13 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server.csproj", "{3A28219D-2FFF-4CD2-8A9F-19A8CB20D590}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNP", "..\UNP\UNP.csproj", "{781D3358-B394-4543-896F-68CF05AD83EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalNetworkProtocolLib", "..\UNP\UniversalNetworkProtocolLib.csproj", "{781D3358-B394-4543-896F-68CF05AD83EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{A8A42165-19F1-431A-8096-249E3876F06B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UniversalNetworkPacket", "UniversalNetworkPacket", "{CE6DDFA5-90F4-4F1D-97B4-D70FC154333D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{CE6DDFA5-90F4-4F1D-97B4-D70FC154333D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNP_Tests", "UnitTestProject1\UNP_Tests.csproj", "{A9A82A1A-A5C3-4B80-8728-A52627A7D44E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerMSG", "ServerMSG\ServerMSG.csproj", "{5408073D-CA82-45E1-9720-02F129320648}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,17 +35,13 @@ Global
 		{A9A82A1A-A5C3-4B80-8728-A52627A7D44E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9A82A1A-A5C3-4B80-8728-A52627A7D44E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9A82A1A-A5C3-4B80-8728-A52627A7D44E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5408073D-CA82-45E1-9720-02F129320648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5408073D-CA82-45E1-9720-02F129320648}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5408073D-CA82-45E1-9720-02F129320648}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5408073D-CA82-45E1-9720-02F129320648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{781D3358-B394-4543-896F-68CF05AD83EF} = {CE6DDFA5-90F4-4F1D-97B4-D70FC154333D}
-		{A9A82A1A-A5C3-4B80-8728-A52627A7D44E} = {CE6DDFA5-90F4-4F1D-97B4-D70FC154333D}
+		{3A28219D-2FFF-4CD2-8A9F-19A8CB20D590} = {CE6DDFA5-90F4-4F1D-97B4-D70FC154333D}
+		{A8A42165-19F1-431A-8096-249E3876F06B} = {CE6DDFA5-90F4-4F1D-97B4-D70FC154333D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BECB9D1-A468-4741-B995-B9D052438C77}

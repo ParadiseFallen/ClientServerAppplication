@@ -51,13 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UNP\UNP.csproj">
+    <ProjectReference Include="..\UNP\UniversalNetworkProtocolLib.csproj">
       <Project>{781D3358-B394-4543-896F-68CF05AD83EF}</Project>
-      <Name>UNP</Name>
-    </ProjectReference>
-    <ProjectReference Include="ServerMSG\ServerMSG.csproj">
-      <Project>{5408073D-CA82-45E1-9720-02F129320648}</Project>
-      <Name>ServerMSG</Name>
+      <Name>UniversalNetworkProtocolLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UNP\UNP.csproj">
+    <ProjectReference Include="..\..\UNP\UniversalNetworkProtocolLib.csproj">
       <Project>{781D3358-B394-4543-896F-68CF05AD83EF}</Project>
-      <Name>UNP</Name>
+      <Name>UniversalNetworkProtocolLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
