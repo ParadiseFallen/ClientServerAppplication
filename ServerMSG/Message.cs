@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApp10
+namespace ServerMSG
 {
-    [Serializable]
-    class Message
+    public class Message
     {
         public string Owner { get; set; }
         public DateTime Time { get; set; }

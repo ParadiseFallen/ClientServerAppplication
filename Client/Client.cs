@@ -5,8 +5,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using UNP;
 
-namespace ConsoleApp10
+namespace Client
 {
     class Client : IDisposable
     {
@@ -27,14 +28,14 @@ namespace ConsoleApp10
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             //socket.Bind(ServerPoint);
             socket.Connect(ServerPoint);
-            socket.Send(await NetPacket.Serialazie(new NetPacket() { PacketType = NetPacket.NetPacketType.CONNECT, Data = Name }));
+            //socket.Send(await NetPacket.SerialazieAsync(new NetPacket() { PacketType = NetPacket.NetPacketType.CONNECT, Message=new Message() { Data = new ServerMSG. } }));
             bool exit = false;
             Console.WriteLine("Comands: GET: , POST: ,EXIT");
             do
             {
                 ParseInput(exit, socket);
             } while (!exit);
-            socket.Send(await NetPacket.Serialazie(new NetPacket() { PacketType = NetPacket.NetPacketType.DISCONECT, Data = Name }));
+            //socket.Send(await NetPacket.SerialazieAsync(new NetPacket() { PacketType = NetPacket.NetPacketType.DISCONECT, Data = Name }));
             socket.Shutdown(SocketShutdown.Both);
         }
         private async void ParseInput(bool exit,Socket ConnectionSocket)
@@ -43,15 +44,15 @@ namespace ConsoleApp10
             string Text = Console.ReadLine();
             if (Text.Contains("EXIT"))
             {
-                ConnectionSocket.Send(await NetPacket.Serialazie(new NetPacket() { PacketType = NetPacket.NetPacketType.DISCONECT }));
+                ConnectionSocket.Send(NetPacket.Serialazie(new NetPacket() { PacketType = NetPacket.NetPacketType.DISCONECT }));
                 exit = true;
             }
 
             if (Text.Contains("POST:"))
             {
-                ConnectionSocket.Send(await NetPacket.Serialazie(new NetPacket()
+                ConnectionSocket.Send(await NetPacket.SerialazieAsync(new NetPacket()
                 {
-                    Data = new Message() { Owner = Name , Time = DateTime.Now, Text = Text.Replace("POST:","")},
+                    //Data = new Message() { Owner = Name , Time = DateTime.Now, Text = Text.Replace("POST:","")},
                     PacketType = NetPacket.NetPacketType.POST,
                 }
                 ));
@@ -59,17 +60,17 @@ namespace ConsoleApp10
 
             if (Text.Contains("GET:"))
             {
-                ConnectionSocket.Send(await NetPacket.Serialazie(new NetPacket()
+                ConnectionSocket.Send(await NetPacket.SerialazieAsync(new NetPacket()
                 {
-                    Data = new Message() { Owner = Text.Replace("GET:",""), Time = DateTime.Now },
+                    //Data = new Message() { Owner = Text.Replace("GET:",""), Time = DateTime.Now },
                     PacketType = NetPacket.NetPacketType.GET,
                 }
                 ));
-                var response = await NetPacket.Deserialize(ConnectionSocket, 1024);
-                if (response.DataType==typeof(List<Message>))
-                {
-                    (response.Data as List<Message>).ForEach(Console.WriteLine);
-                }
+                var response = await NetPacket.DeserializeAsync(ConnectionSocket, 1024);
+                //if (response.DataType==typeof(List<Message>))
+                //{
+                //    (response.Data as List<Message>).ForEach(Console.WriteLine);
+                //}
             }
         }
         public void Dispose()

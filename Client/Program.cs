@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp10
+namespace Client
 {
     class Program
     {
         static void Main(string[] args)
         {
-            using (var server = new Server())
+            using (var cliet = new Client())
             {
-                server.Start();
+                cliet.Start();
             }
         }
     }

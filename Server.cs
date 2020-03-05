@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServerMSG;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using UNP;
+using UNP.Packet;
 
 namespace ConsoleApp10
 {
@@ -50,10 +53,10 @@ namespace ConsoleApp10
             Task.Run(async () =>
             {
                 bool online = true;
-                NetPacket packet;
+                UNP.Packet.NetPacket packet;
                 do
                 {
-                    packet = await NetPacket.Deserialize(s, 1024);
+                    packet = await NetPacket.DeserializeAsync(s, 1024);
                     switch (packet.PacketType)
                     {
                         case NetPacket.NetPacketType.CONNECT:
@@ -92,7 +95,7 @@ namespace ConsoleApp10
                     List<Message> t;
                     if (!Messages.TryGetValue(msg.Owner, out t))
                     {
-                        clientSocket.Send(NetPacket.Serialazie(new NetPacket()
+                        clientSocket.Send(NetPacket.SerialazieAsync(new NetPacket()
                         {
                             PacketType = NetPacket.NetPacketType.RESPONSE,
                             ResponseOn = packet,
@@ -100,7 +103,7 @@ namespace ConsoleApp10
                         }).Result);
                     }
                     else
-                        clientSocket.Send(NetPacket.Serialazie(new NetPacket()
+                        clientSocket.Send(NetPacket.SerialazieAsync(new NetPacket()
                         {
                             PacketType = NetPacket.NetPacketType.RESPONSE,
                             ResponseOn = packet,
